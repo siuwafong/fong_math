@@ -7,10 +7,17 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
+import { useStaticQuery, graphql, withPrefix, Link } from "gatsby"
+import "katex/dist/katex.min.css"
 import Header from "./header"
 import "./layout.css"
+import Helmet from "react-helmet"
+
+const ListLink = props => (
+  <li style={{ display: `inline-block`, marginRight: `1rem` }}>
+    <Link to={props.to}>{props.children}</Link>
+  </li>
+)
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +32,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+
+      
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div
         style={{
           margin: `0 auto`,
@@ -33,7 +42,26 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+
+    <Helmet>
+      <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+    </Helmet>
+
+      <div style={{ margin: `3rem auto`, maxWidth: 800, padding: `0 1rem` }}>
+
+        <header style={{ marginBottom: `1.5rem` }} siteTitle={data.site.siteMetadata.title}>
+          <Link to="/" style={{ textShadow: `none`, backgroundImage: `none`, color: `black` }}>
+            <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
+          </Link>
+          <ul style={{ listStyle: `none`, float: `right` }}>
+            <ListLink to="/">Home</ListLink>
+            <ListLink to="/about/">About</ListLink>
+            <ListLink to="/contact/">Contact</ListLink>
+          </ul>
+
+      </header>
+        {children}
+      </div>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
