@@ -1,22 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Desmos from 'desmos'
-
-
+import './desmosgraph.css'
 
 const DesmosGraph = ({ graphfunction, graphid }) => {
+
+    let calcDiv = document.getElementById("calcDiv")
 
     const elt = document.createElement('div')
     elt.style.width = '500px'
     elt.style.height = '350px'
 
     const calculator = Desmos.GraphingCalculator(elt)
-    calculator.setExpression({ id: 'graph1', latex: graphfunction })
+    calculator.setExpression({ id: 'graph1', latex: 'y=x^2' })
+
+    // document.body.prepend(elt)
+
+    elt.classList.add("calcDiv")
+    document.body.insertBefore(elt, calcDiv)
+
     
-    document.body.prepend(elt)
 
 return (
-        <>
-        </>
+        <div id="desmosgraph-container">
+            <div id="calcDiv">
+
+            </div>
+        </div>
     )
 }
 

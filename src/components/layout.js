@@ -12,6 +12,7 @@ import "katex/dist/katex.min.css"
 import Header from "./header"
 import "./layout.css"
 import Helmet from "react-helmet"
+import DesmosGraph from './desmosgraph'
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -48,7 +49,6 @@ const Layout = ({ children }) => {
     </Helmet>
 
       <div style={{ margin: `3rem auto`, maxWidth: 800, padding: `0 1rem` }}>
-
         <header style={{ marginBottom: `1.5rem` }} siteTitle={data.site.siteMetadata.title}>
           <Link to="/" style={{ textShadow: `none`, backgroundImage: `none`, color: `black` }}>
             <h3 style={{ display: `inline` }}>{data.site.siteMetadata.title}</h3>
