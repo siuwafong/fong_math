@@ -12,7 +12,6 @@ import "katex/dist/katex.min.css"
 import Header from "./header"
 import "./layout.css"
 import Helmet from "react-helmet"
-import DesmosGraph from './desmosgraph'
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -45,7 +44,6 @@ const Layout = ({ children }) => {
       >
 
     <Helmet>
-      <script src="https://www.desmos.com/api/v1.5/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     </Helmet>
 
       <div style={{ margin: `3rem auto`, maxWidth: 800, padding: `0 1rem` }}>

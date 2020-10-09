@@ -1,0 +1,24 @@
+---
+title: 1.1 - Power Functions
+date: 2020-10-07
+---
+
+import "katex/dist/katex.min.css";
+import Examples from '../../components/Examples.js'
+import { evaluate } from 'mathjs'
+
+<h1>{props.pageContext.frontmatter.title} </h1>
+
+## Polynomial and Power Functions
+
+A **polynomial function** is a function in the form of:
+
+$ f(x)= a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}+a_{n-3}x^{n-3}+a_1x+a_0 $
+
+where $$n$$ is a whole positive number and is the **degree**, $$x$$ is a variable, $$a_{n}, a_{n-1}…$$ are real number **coefficients**, $$a_{0}$$ is a **constant term**.
+
+A **power function** is a function in the form of f(x)=ax^n.  A power function is the simplest form of a polynomial function.
+
+<ins>Example 1 </ins>
+
+<Examples qAndA={[{question: "2^{n} \\times 4^{2n}", answer: "2^{5n}", mathjs: "XYZ" }]}/>
